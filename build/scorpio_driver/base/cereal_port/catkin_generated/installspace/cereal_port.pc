@@ -1,0 +1,8 @@
+prefix=/home/glc/catkin_ws/install
+
+Name: cereal_port
+Description: Description of cereal_port
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

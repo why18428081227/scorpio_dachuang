@@ -1,0 +1,8 @@
+prefix=/home/glc/catkin_ws/devel
+
+Name: scorpio_rtabmap
+Description: Description of scorpio_rtabmap
+Version: 2.3.7
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: tf roscpp sensor_msgs

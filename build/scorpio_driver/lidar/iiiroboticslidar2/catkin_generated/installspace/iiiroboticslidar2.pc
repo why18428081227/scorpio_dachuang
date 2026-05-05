@@ -1,0 +1,8 @@
+prefix=/home/glc/catkin_ws/install
+
+Name: iiiroboticslidar2
+Description: Description of iiiroboticslidar2
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

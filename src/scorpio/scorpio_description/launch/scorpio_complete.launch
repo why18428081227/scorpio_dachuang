@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Gazebo 环境 -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+  </include>
+
+  <!-- 加载小车模型 -->
+  <param name="robot_description" textfile="$(find scorpio_description)/urdf/scorpio_complete_gazebo.urdf" />
+
+  <!-- 生成小车 -->
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_robot"
+        args="-urdf -param robot_description -model scorpio -x 0 -y 0 -z 0.5" />
+
+<!-- ✅ 静态人形，100%能看到，YOLO能完美检测 -->
+<node pkg="gazebo_ros" type="spawn_model" name="spawn_person"
+      args="-file $(find scorpio_description)/urdf/static_person.sdf -sdf -model person -x 1.5 -y 0 -z 0" />
+
+  <!-- 发布坐标 -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen"/>
+  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" output="screen"/>
+</launch>

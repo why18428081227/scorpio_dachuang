@@ -1,0 +1,8 @@
+prefix=/home/glc/catkin_ws/devel
+
+Name: scorpio_slam
+Description: Description of scorpio_slam
+Version: 0.0.0
+Cflags: -I/home/glc/catkin_ws/src/scorpio_app/scorpio_slam/include
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy std_msgs

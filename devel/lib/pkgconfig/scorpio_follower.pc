@@ -1,0 +1,8 @@
+prefix=/home/glc/catkin_ws/devel
+
+Name: scorpio_follower
+Description: Description of scorpio_follower
+Version: 0.4.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

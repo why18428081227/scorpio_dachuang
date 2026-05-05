@@ -1,0 +1,411 @@
+<?xml version="1.0"?>
+<robot name="scorpio">
+
+  <link name="base_footprint"/>
+  <link name="base_link"/>
+
+  <joint name="base_footprint_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_footprint"/>
+    <child link="base_link" />
+  </joint>
+
+  <link name="IMU_link"/>
+  <joint name="IMU_joint" type="fixed">
+    <origin xyz="0.16 0.04 0.175" rpy="0 0 -3.141592654" />
+    <parent link="base_link"/>
+    <child link="IMU_link"/>
+  </joint>
+
+  <link name="room_base_link">
+    <inertial>
+      <origin xyz="-0.0078695 -0.020998 -0.001386" rpy="0 0 0" />
+      <mass value="0.54755" />
+      <inertia
+        ixx="0.00346146576565066"
+        ixy="-6.26423343889596E-06"
+        ixz="8.2000761035661E-05"
+        iyy="-1.84932053914363E-05"
+        iyz="-0.00410723070180017"
+        izz="1.84932053914367E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://scorpio_description/meshes/scorpio/base/scorpio.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://scorpio_description/meshes/scorpio/base/scorpio.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="room_base_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="room_base_link" />
+  </joint>
+
+  <link name="left_back_wheel_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.2" />
+      <inertia
+        ixx="0.0005"
+        ixy="0"
+        ixz="0"
+        iyy="0.0008"
+        iyz="0"
+        izz="0.0005" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://scorpio_description/meshes/scorpio/base/left_wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.4 0.4 0.4 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://scorpio_description/meshes/scorpio/base/left_wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.4 0.4 0.4 1"/>
+      </material>
+    </collision>
+  </link>
+
+  <joint name="left_back_wheel_joint" type="continuous">
+    <origin xyz="-0.1575 0.0928 0.0525" rpy="0 0 0" />
+    <axis xyz="0 1 0"/>
+    <parent link="base_link"/>
+    <child link="left_back_wheel_link" />
+  </joint>
+
+  <link name="right_back_wheel_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.2" />
+      <inertia
+        ixx="0.0005"
+        ixy="0"
+        ixz="0"
+        iyy="0.0008"
+        iyz="0"
+        izz="0.0005" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://scorpio_description/meshes/scorpio/base/right_wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.4 0.4 0.4 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://scorpio_description/meshes/scorpio/base/right_wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.4 0.4 0.4 1"/>
+      </material>
+    </collision>
+  </link>
+
+  <joint name="right_back_wheel_joint" type="continuous">
+    <origin xyz="-0.1575 -0.0928 0.0525" rpy="0 0 0" />
+    <axis xyz="0 1 0"/>
+    <parent link="base_link"/>
+    <child link="right_back_wheel_link" />
+  </joint>
+
+  <link name="left_front_wheel_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.05" />
+      <inertia
+        ixx="0.00005"
+        ixy="0"
+        ixz="0"
+        iyy="0.00008"
+        iyz="0"
+        izz="0.00005" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://scorpio_description/meshes/scorpio/base/left_wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.4 0.4 0.4 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://scorpio_description/meshes/scorpio/base/left_wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.4 0.4 0.4 1"/>
+      </material>
+    </collision>
+  </link>
+
+  <joint name="left_front_wheel_joint" type="continuous">
+    <origin xyz="0.1575 0.0928 0.0525" rpy="0 0 0" />
+    <axis xyz="0 1 0"/>
+    <parent link="base_link"/>
+    <child link="left_front_wheel_link" />
+  </joint>
+
+  <link name="right_front_wheel_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.05" />
+      <inertia
+        ixx="0.00005"
+        ixy="0"
+        ixz="0"
+        iyy="0.00008"
+        iyz="0"
+        izz="0.00005" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://scorpio_description/meshes/scorpio/base/right_wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.4 0.4 0.4 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://scorpio_description/meshes/scorpio/base/right_wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.4 0.4 0.4 1"/>
+      </material>
+    </collision>
+  </link>
+
+  <joint name="right_front_wheel_joint" type="continuous">
+    <origin xyz="0.1575 -0.0928 0.0525" rpy="0 0 0" />
+    <axis xyz="0 1 0"/>
+    <parent link="base_link"/>
+    <child link="right_front_wheel_link" />
+  </joint>
+
+  <link name="camera_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.11222" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://scorpio_description/meshes/scorpio/sensors/astra_camera.DAE" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://scorpio_description/meshes/scorpio/sensors/astra_camera.DAE" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="camera_link_joint" type="fixed">
+    <origin xyz="0.16 0 0.229500" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="camera_link" />
+  </joint>
+
+  <link name="camera_rgb_frame"/>
+  <joint name="camera_rgb_joint" type="fixed">
+    <origin xyz="0 0.01255 0" rpy="0 0 0" />
+    <parent link="camera_link"/>
+    <child link="camera_rgb_frame" />
+  </joint>
+
+  <link name="camera_rgb_optical_frame"/>
+  <joint name="camera_rgb_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.5707963267948966 0 -1.5707963267948966" />
+    <parent link="camera_rgb_frame"/>
+    <child link="camera_rgb_optical_frame" />
+  </joint>
+
+  <link name="camera_depth_frame"/>
+  <joint name="camera_depth_joint" type="fixed">
+    <origin xyz="0 0.03755 0" rpy="0 0 0" />
+    <parent link="camera_link"/>
+    <child link="camera_depth_frame" />
+  </joint>
+
+  <link name="camera_depth_optical_frame"/>
+  <joint name="camera_depth_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.5707963267948966 0 -1.5707963267948966" />
+    <parent link="camera_depth_frame"/>
+    <child link="camera_depth_optical_frame" />
+  </joint>
+
+  <link name="laser_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.1" />
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.05" length="0.05"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.05" length="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="laser_joint" type="fixed">
+    <origin xyz="0.16 0 0.3" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="laser_link" />
+  </joint>
+
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <robotNamespace>/</robotNamespace>
+      <leftJoint>left_back_wheel_joint</leftJoint>
+      <rightJoint>right_back_wheel_joint</rightJoint>
+      <wheelSeparation>0.36</wheelSeparation>
+      <wheelDiameter>0.14</wheelDiameter>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
+      <publishWheelTF>true</publishWheelTF>
+      <publishOdom>true</publishOdom>
+      <wheelAcceleration>1.0</wheelAcceleration>
+      <wheelTorque>5.0</wheelTorque>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="laser_link">
+    <sensor type="ray" name="laser">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14159</min_angle>
+            <max_angle>3.14159</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.12</min>
+          <max>3.5</max>
+          <resolution>0.015</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_laser_controller" filename="libgazebo_ros_ray_sensor.so">
+        <ros>
+          <remapping>~/out:=scan</remapping>
+        </ros>
+        <output_type>sensor_msgs/LaserScan</output_type>
+        <frame_name>laser_link</frame_name>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="camera_rgb_optical_frame">
+    <sensor type="camera" name="camera">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>camera/rgb</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_rgb_optical_frame</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="camera_depth_optical_frame">
+    <sensor type="depth" name="camera_depth">
+      <update_rate>30.0</update_rate>
+      <camera name="depth">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>L8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>10.0</far>
+        </clip>
+      </camera>
+      <plugin name="depth_controller" filename="libgazebo_ros_openni_kinect.so">
+        <cameraName>camera/depth</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <depthImageTopicName>image_raw</depthImageTopicName>
+        <depthImageCameraInfoTopicName>camera_info</depthImageCameraInfoTopicName>
+        <pointCloudTopicName>points</pointCloudTopicName>
+        <frameName>camera_depth_optical_frame</frameName>
+        <baseline>0.1</baseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+        <pointCloudCutoff>0.5</pointCloudCutoff>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+</robot>
+

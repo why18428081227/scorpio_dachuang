@@ -1,0 +1,8 @@
+prefix=/home/glc/catkin_ws/devel
+
+Name: camera_driver_transfer
+Description: Description of camera_driver_transfer
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
