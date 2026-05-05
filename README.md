@@ -3,7 +3,7 @@
 
 ## 说明 Description
  
-- 本说明为初学者体验版，[这里](https://github.com/NXROBO/scorpio/blob/master/README_Detailed.md)有详细说明的版本。
+- 该项目基于原厂代码优化升级，[这里](https://github.com/NXROBO/scorpio.git)为源代码。
 
 ## 列表 Table of Contents
 
